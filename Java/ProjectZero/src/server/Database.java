@@ -12,13 +12,17 @@ public class Database {
 
     public Database() {
         roomList = new Vector<Room>();
-        roomList.add(new Room("bedroom"));
-        roomList.add(new Room("kitchen"));
-        getRoom("kitchen").setStatus(false);
-    }
+        Room bedRoom = new Room("bedroom");
+        bedRoom.addToRoom("tableLight", ElementType.LIGHT);
+        bedRoom.addToRoom("tv", ElementType.DEVICE);
 
-    public boolean getStatus(String name) {
-        return getRoom(name).getStatus();
+        Room kitchen = new Room("kitchen");
+        kitchen.addToRoom("ceilingLight", ElementType.LIGHT);
+        kitchen.addToRoom("coffeeMachine", ElementType.MACHINE);
+
+        roomList.add(bedRoom);
+        roomList.add(kitchen);
+
     }
 
     private Room getRoom(String name) {
@@ -38,7 +42,7 @@ public class Database {
     public String getStatusAll() {
         StringBuilder s = new StringBuilder();
         for (Room r : roomList) {
-            s.append(r.getName() + "#" + r.getStatus() + "#");
+            s.append(r.getStatus()+"#");
         }
         s.append("#");
         return s.toString();
