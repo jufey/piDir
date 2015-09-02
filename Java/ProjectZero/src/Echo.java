@@ -2,7 +2,7 @@ import java.io.*;
 import java.net.*;
 
 public class Echo {
-    public static final String DEFAULT_ADDR = "localhost";	// Default-Adresse
+    public static final String DEFAULT_ADDR = "192.168.2.100";	// Default-Adresse
 
     public static void main(String[] args) {
         Socket socket = null;				// Socket für die Kommunikation
@@ -42,7 +42,7 @@ public class Echo {
                 sout.println(line);		// Schicke sie zum Server
                 sout.flush();			// und zwar gleich
                 line = sin.readLine();		// Lies eine Zeile vom Server
-                if (line == null) {		// Kommunikation beendet? (EOF)
+                if (line.equalsIgnoreCase("exit")) {		// Kommunikation beendet? (EOF)
                     System.out.println("Verbindung vom Server geschlossen.");
                     break;
                 }
