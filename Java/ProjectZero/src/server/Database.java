@@ -1,4 +1,6 @@
+package server;
 import java.util.Vector;
+import elements.*;
 
 /**
  * Created by jufey on 02/09/15.

@@ -1,5 +1,7 @@
+package client;
 import java.io.*;
 import java.net.*;
+import server.*;
 
 public class Echo {
     public static final String DEFAULT_ADDR = "192.168.2.100";
