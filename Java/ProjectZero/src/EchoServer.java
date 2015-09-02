@@ -50,6 +50,8 @@ public class EchoServer extends Thread {
         System.out.println(line);
         if(line.equalsIgnoreCase("Server shutdown")){
             shutdown();
+            isRunning=false;
+            System.exit(1);
         }
 
 
