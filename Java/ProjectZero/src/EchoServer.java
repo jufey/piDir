@@ -8,6 +8,7 @@ public class EchoServer extends Thread {
     Vector<Connection> connections;
     int num_connections;
     private boolean isRunning;
+    private String shutdownCommand = "Server shutdown";
 
     public static void fail(Exception e, String msg) {
         System.err.println(msg + ": " + e);
@@ -26,6 +27,7 @@ public class EchoServer extends Thread {
             fail(e, "Error while starting the Server");
         }
         this.start();
+
     }
 
     public void run() {
@@ -37,7 +39,7 @@ public class EchoServer extends Thread {
             }
         } catch (IOException e) {
             fail(e, "While waiting for a connection an error occurred");
-        }finally {
+        } finally {
             try {
                 server_socket.close();
             } catch (IOException e) {
@@ -52,17 +54,19 @@ public class EchoServer extends Thread {
     }
 
     public synchronized void receive(String line, Connection c) {
-        c.send(line);
-
-        if(line.equalsIgnoreCase("Server shutdown")){
+        if (line.equalsIgnoreCase(shutdownCommand)) {
             shutdown();
-            isRunning=false;
+            return;
         }
         System.out.println(line);
-
+        c.send(line);
     }
-    public synchronized void shutdown(){
+
+    public synchronized void shutdown() {
         connections.forEach(Connection::close);
+        isRunning = false;
+        System.out.println("Server shutdown ...");
+
     }
 
     public static void main(String[] args) {
