@@ -47,13 +47,14 @@ public class EchoServer extends Thread {
 
     public synchronized void receive(String line, Connection c) {
         c.send(line);
-        System.out.println(line);
+
         if(line.equalsIgnoreCase("Server shutdown")){
+            System.out.println(line);
             shutdown();
             isRunning=false;
             System.exit(1);
         }
-
+        System.out.println(line);
 
     }
     public synchronized void shutdown(){
