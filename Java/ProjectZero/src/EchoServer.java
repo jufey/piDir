@@ -38,7 +38,7 @@ public class EchoServer extends Thread {
                 addConnection(c);
             }
         } catch (IOException e) {
-            fail(e, "While waiting for a connection an error occurred");
+            System.out.println(e+ " While waiting for a connection an error occurred");
         } finally {
             try {
                 server_socket.close();
@@ -56,7 +56,7 @@ public class EchoServer extends Thread {
     public synchronized void receive(String line, Connection c) {
         if (line.equalsIgnoreCase(shutdownCommand)) {
             shutdown();
-            return;
+
         }
         System.out.println(line);
         c.send(line);
@@ -65,8 +65,11 @@ public class EchoServer extends Thread {
     public synchronized void shutdown() {
         connections.forEach(Connection::close);
         isRunning = false;
-        System.out.println("Server shutdown ...");
-
+        try {
+            server_socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {

@@ -2,7 +2,8 @@ import java.io.*;
 import java.net.*;
 
 public class Echo {
-    public static final String DEFAULT_ADDR = "192.168.2.100";    // Default-Adresse
+    public static final String DEFAULT_ADDR = "192.168.2.100";
+    public static final String DEFAULT_ADDR2 = "localhost";
 
     public static void main(String[] args) {
         Socket socket = null;
@@ -11,7 +12,7 @@ public class Echo {
 
 
         try {
-            socket = new Socket(DEFAULT_ADDR, EchoServer.DEFAULT_PORT);
+            socket = new Socket(DEFAULT_ADDR2, EchoServer.DEFAULT_PORT);
             in = new BufferedReader(new InputStreamReader(System.in));
             sin = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             sout = new PrintWriter(socket.getOutputStream());
