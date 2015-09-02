@@ -52,6 +52,11 @@ public class EchoServer extends Thread {
             System.out.println(line);
             shutdown();
             isRunning=false;
+            try {
+                server_socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             System.exit(1);
         }
         System.out.println(line);
