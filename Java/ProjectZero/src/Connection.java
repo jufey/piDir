@@ -32,20 +32,6 @@ public class Connection extends Thread {
                 line = sin.readLine();
                 if (line == null) break;
                 server.receive(line, this);
-                if (line.equalsIgnoreCase("Close connection")) {
-                    try {
-                        socket.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }else if(line.equalsIgnoreCase("Server shutdown")){
-                    try {
-                        socket.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-
 
             }
         } catch (IOException e) {

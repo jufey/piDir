@@ -50,9 +50,12 @@ public class EchoServer extends Thread {
         System.out.println(line);
         if (line.equalsIgnoreCase("Server shutdown")) {
             try {
+                this.wait(100);
                 server_socket.close();
                 System.out.println("Server shutdown");
             } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
