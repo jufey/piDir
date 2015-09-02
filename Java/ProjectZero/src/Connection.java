@@ -6,10 +6,12 @@ public class Connection extends Thread {
     protected Socket socket;
     protected BufferedReader sin;
     protected PrintWriter sout;
+    protected boolean isRunning;
 
     public Connection(Socket socket, EchoServer server) {
         this.socket = socket;
         this.server = server;
+        isRunning = true;
         System.out.println(socket + ": Connected");
         try {
             sin = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -28,7 +30,7 @@ public class Connection extends Thread {
     public void run() {
         String line;
         try {
-            while (true) {
+            while (isRunning) {
                 line = sin.readLine();
                 if (line == null) break;
                 server.receive(line, this);
@@ -37,7 +39,7 @@ public class Connection extends Thread {
         } catch (IOException e) {
             System.out.println("Error while receiving.");
         } finally {
-            System.out.print(socket + ": Verbindung schließen...");
+            System.out.print(socket + ": Close connection...");
             try {
                 socket.close();
                 System.out.println("OK!");
@@ -52,5 +54,8 @@ public class Connection extends Thread {
             sout.println(line);            // Daten an Client ausgeben
             sout.flush();                // und sofort senden
         }
+    }
+    public void close(){
+        isRunning=false;
     }
 }

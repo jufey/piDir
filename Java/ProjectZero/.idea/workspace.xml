@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4af581cf-084c-4761-ab02-ab63ca25ed42" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Connection.java" afterPath="$PROJECT_DIR$/src/Connection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Echo.java" afterPath="$PROJECT_DIR$/src/Echo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EchoServer.java" afterPath="$PROJECT_DIR$/src/EchoServer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -28,15 +27,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="EchoServer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EchoServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EchoServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6857143">
-              <caret line="58" column="16" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1905#1906#0" expanded="true" />
-                <element signature="e#1937#1938#0" expanded="true" />
+                <element signature="e#1606#1607#0" expanded="true" />
+                <element signature="e#1660#1661#0" expanded="true" />
+                <element signature="e#1706#1707#0" expanded="true" />
+                <element signature="e#1738#1739#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -54,13 +55,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Connection.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Connection.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Connection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6571429">
+              <caret line="41" column="57" selection-start-line="41" selection-start-column="57" selection-end-line="41" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1776#1777#0" expanded="true" />
+                <element signature="e#1807#1808#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,9 +97,9 @@
         <option value="$PROJECT_DIR$/src/de/jufey/network/Client.java" />
         <option value="$PROJECT_DIR$/src/de/jufey/network/Server.java" />
         <option value="$PROJECT_DIR$/src/Server.java" />
+        <option value="$PROJECT_DIR$/src/Echo.java" />
         <option value="$PROJECT_DIR$/src/Connection.java" />
         <option value="$PROJECT_DIR$/src/EchoServer.java" />
-        <option value="$PROJECT_DIR$/src/Echo.java" />
       </list>
     </option>
   </component>
@@ -528,7 +531,7 @@
       <option name="number" value="Default" />
       <updated>1441056446932</updated>
       <workItem from="1441056452260" duration="2084000" />
-      <workItem from="1441177056345" duration="5640000" />
+      <workItem from="1441177056345" duration="6210000" />
     </task>
     <task id="LOCAL-00001" summary="Reworked">
       <created>1441179067778</created>
@@ -554,11 +557,17 @@
       <option name="project" value="LOCAL" />
       <updated>1441181889300</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Reworked">
+      <created>1441182708575</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1441182708575</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7724000" />
+    <option name="totallyTimeSpent" value="8294000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="61" y="-4" width="1305" height="772" extended-state="6" />
@@ -656,16 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Connection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Echo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -678,12 +677,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EchoServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6857143">
-          <caret line="58" column="16" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1905#1906#0" expanded="true" />
-            <element signature="e#1937#1938#0" expanded="true" />
+            <element signature="e#1606#1607#0" expanded="true" />
+            <element signature="e#1660#1661#0" expanded="true" />
+            <element signature="e#1706#1707#0" expanded="true" />
+            <element signature="e#1738#1739#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6571429">
+          <caret line="41" column="57" selection-start-line="41" selection-start-column="57" selection-end-line="41" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1776#1777#0" expanded="true" />
+            <element signature="e#1807#1808#0" expanded="true" />
           </folding>
         </state>
       </provider>

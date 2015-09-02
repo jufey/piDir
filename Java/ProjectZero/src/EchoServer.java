@@ -48,21 +48,18 @@ public class EchoServer extends Thread {
     public synchronized void receive(String line, Connection c) {
         c.send(line);
         System.out.println(line);
-        if (line.equalsIgnoreCase("Server shutdown")) {
-            try {
-                this.wait(100);
-                server_socket.close();
-                System.out.println("Server shutdown");
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        if(line.equalsIgnoreCase("Server shutdown")){
+            shutdown();
         }
 
+
+    }
+    public synchronized void shutdown(){
+        connections.forEach(Connection::close);
     }
 
     public static void main(String[] args) {
         new EchoServer();
     }
+
 }
