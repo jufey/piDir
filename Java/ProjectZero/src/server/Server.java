@@ -10,8 +10,7 @@ public class Server extends Thread {
     Vector<Connection> connections;
     int num_connections;
     private boolean isRunning;
-    private String shutdownCommand = "Server shutdown";
-    Database db;
+    ServerCommandHandler sch;
 
     public static void fail(Exception e, String msg) {
         System.err.println(msg + ": " + e);
@@ -19,7 +18,7 @@ public class Server extends Thread {
     }
 
     public Server() {
-        db = new Database();
+        sch = new ServerCommandHandler(this);
         connections = new Vector<Connection>();
         try {
             server_socket = new ServerSocket(DEFAULT_PORT);
@@ -58,18 +57,10 @@ public class Server extends Thread {
     }
 
     public synchronized void receive(String line, Connection c) {
-        if(line.startsWith("room")){
-            line = ""+db.getStatus(line.substring(5));
-        }
-        if (line.equalsIgnoreCase(shutdownCommand)) {
-            shutdown();
-
-        }
-        System.out.println(line);
-        c.send(line);
+        c.send(sch.command(line));
     }
 
-    public synchronized void shutdown() {
+    public synchronized String shutdown() {
         connections.forEach(Connection::close);
         isRunning = false;
         try {
@@ -78,6 +69,7 @@ public class Server extends Thread {
             e.printStackTrace();
         }
         System.exit(0);
+        return "shutdown server";
     }
 
     public static void main(String[] args) {
