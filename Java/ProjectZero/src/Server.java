@@ -2,20 +2,22 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
-public class EchoServer extends Thread {
+public class Server extends Thread {
     public static final int DEFAULT_PORT = 61509;
     ServerSocket server_socket;
     Vector<Connection> connections;
     int num_connections;
     private boolean isRunning;
     private String shutdownCommand = "Server shutdown";
+    Database db;
 
     public static void fail(Exception e, String msg) {
         System.err.println(msg + ": " + e);
         System.exit(1);
     }
 
-    public EchoServer() {
+    public Server() {
+        db = new Database();
         connections = new Vector<Connection>();
         try {
             server_socket = new ServerSocket(DEFAULT_PORT);
@@ -54,6 +56,9 @@ public class EchoServer extends Thread {
     }
 
     public synchronized void receive(String line, Connection c) {
+        if(line.startsWith("room")){
+            line = ""+db.getStatus(line.substring(5));
+        }
         if (line.equalsIgnoreCase(shutdownCommand)) {
             shutdown();
 
@@ -70,10 +75,11 @@ public class EchoServer extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.exit(0);
     }
 
     public static void main(String[] args) {
-        new EchoServer();
+        new Server();
     }
 
 }

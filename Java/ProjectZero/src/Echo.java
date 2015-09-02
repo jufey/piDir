@@ -12,7 +12,7 @@ public class Echo {
 
 
         try {
-            socket = new Socket(DEFAULT_ADDR2, EchoServer.DEFAULT_PORT);
+            socket = new Socket(DEFAULT_ADDR2, Server.DEFAULT_PORT);
             in = new BufferedReader(new InputStreamReader(System.in));
             sin = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             sout = new PrintWriter(socket.getOutputStream());
@@ -30,14 +30,18 @@ public class Echo {
                 sout.flush();
                 //Read from Server
                 line = sin.readLine();
+                if(line==null){
+                    System.out.println("NullLine");
+                    break;
+                }
                 if (line.equalsIgnoreCase("exit")) {
                     System.out.println("Connection closed.");
-                    break;
+                    return;
                 }
                 if (line.equalsIgnoreCase("Server shutdown")) {
                     System.out.println("Connection closed.");
                     System.out.println("Server will shutdown.");
-                    break;
+                    return;
                 }
                 System.out.println(line);
             }

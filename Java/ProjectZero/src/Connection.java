@@ -2,13 +2,13 @@ import java.io.*;
 import java.net.*;
 
 public class Connection extends Thread {
-    protected EchoServer server;
+    protected Server server;
     protected Socket socket;
     protected BufferedReader sin;
     protected PrintWriter sout;
     protected boolean isRunning;
 
-    public Connection(Socket socket, EchoServer server) {
+    public Connection(Socket socket, Server server) {
         this.socket = socket;
         this.server = server;
         isRunning = true;
